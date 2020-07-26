@@ -1,6 +1,7 @@
 import pandas as pd
 
 def main():
+	print("reading/filtering data...")
 	# read in constituents data, emails data and subscriptions data
 	df_cons=pd.read_csv(r'data/cons.csv', usecols=['cons_id', 'firstname',
                                                'middlename', 'lastname',
@@ -24,6 +25,7 @@ def main():
 	# convert 1/0 columns to booleans
 	alldata.isunsub = alldata.isunsub.apply(lambda x: x==True)
 	
+	print("creating people.csv")
 	#rename data cols for 'people' report
 	# *** Assumption ***
 	#	 I'm not sure what "code" is from these datasets but the instructions
@@ -40,6 +42,7 @@ def main():
 	#	dataset where we "only care about" data where chapter_id is 1
 	#	2) we consider a constituent "acquired" when their record was created
 	# 	and marked by created_dt
+	print("creating acquisition_facts.csv")
 	alldata['acquisitions']=1
 	alldata['acquisition_date']=pd.to_datetime(alldata.created_dt,
                                                   infer_datetime_format=True)
