@@ -18,9 +18,9 @@ Or copy and paste one of these URLs:
 http://localhost:8888/?token=8ccd5ffb2c141d5a464d2aac3f33e7b777cca09eed8f1bb3
 ```
 From there, click on the file `data_exploration.ipynb`
-3) download the data 
-- [cons] (https://als-hiring.s3.amazonaws.com/fake_data/2020-07-01_17%3A11%3A00/cons.csv)
-- [emails] (https://als-hiring.s3.amazonaws.com/fake_data/2020-07-01_17%3A11%3A00/cons_email.csv)
-- [email chapter subscriptions] (https://als-hiring.s3.amazonaws.com/fake_data/2020-07-01_17%3A11%3A00/cons_email_chapter_subscription.csv)
+3) create a directory called `data` in the working directory, download and store the linked data in it:
+- [cons](https://als-hiring.s3.amazonaws.com/fake_data/2020-07-01_17%3A11%3A00/cons.csv)
+- [emails](https://als-hiring.s3.amazonaws.com/fake_data/2020-07-01_17%3A11%3A00/cons_email.csv)
+- [email chapter subscriptions](https://als-hiring.s3.amazonaws.com/fake_data/2020-07-01_17%3A11%3A00/cons_email_chapter_subscription.csv)
 
-
+4) run the *ETL* script, `python etl.py`, *people* and *acquisition_facts* CSVs will be generated in the working directory.
