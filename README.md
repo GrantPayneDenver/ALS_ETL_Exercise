@@ -3,6 +3,8 @@
 This is the documentation for the *constituents* data wrangling exercise. I chose to use *Pandas*, *Python* and *Jupyter Notebook* (optional) 
 as per recommendation. The code is rather simple and does all the cleansing and writing in a single file, `etl.py`.
 
+Note, there are some assumptions in the comments of `etl.py` written in based on how I interpreted the instructions.
+
 ## Files and directories
 - `etl.py` reads in data from `data/` for *constituents*, *subscriptions* and *emails*; cleanses and saves reports
 - `data_exploration.ipynb` file I used as a "scratch pad" to get a feel of the data and do rough drafts of the cleansing
