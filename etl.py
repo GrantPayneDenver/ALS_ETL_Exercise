@@ -10,22 +10,28 @@ def main():
                                                     'cons_email_type_id',
                                                     'is_primary', 'email',])
 	subs = pd.read_csv(r'data/cons_email_chapter_subscription.csv')
+	
 	# we only care about cons with subscription chapter_id == 1
 	subs = subs[subs.chapter_id==1]
+	
 	# join subs and email lists on cons_email_id
 	subs_emails = subs.join(emails.set_index('cons_email_id'),
                 on='cons_email_id',
                 how='left',
                 lsuffix='_sub_status', rsuffix='_email')
+	
 	# join subs,emails with constituents data on cons_id
 	alldata = subs_emails.join(df_cons.set_index('cons_id'), on='cons_id',
 							  how='left', lsuffix='subsemails',rsuffix='cons')
+	
 	# ensure we only have data where chapter_id is 1
 	assert (alldata['chapter_id']==1).all()
+	
 	# convert 1/0 columns to booleans
 	alldata.isunsub = alldata.isunsub.apply(lambda x: x==True)
 	
 	print("creating people.csv")
+	
 	#rename data cols for 'people' report
 	# *** Assumption ***
 	#	 I'm not sure what "code" is from these datasets but the instructions
